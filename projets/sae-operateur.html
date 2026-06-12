@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail - SAÉ S4 : Réseau Opérateur (RAEI)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #f8fafc; color: #0f172a; }
+        .detail-wrapper { display: flex; gap: 40px; margin-top: 25px; }
+        .detail-preview { flex: 1.2; }
+        .detail-description { flex: 1; }
+        .ac-box { background: #eef2fd; border-left: 4px solid #1a56e8; padding: 20px; border-radius: 4px; }
+        .section-title { margin-top: 40px; margin-bottom: 15px; color: #0f172a; font-weight: 600; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 1.25rem; }
+        .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 15px; }
+        .proof-card { background: #fff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; }
+        .proof-card img { width: 100%; border-radius: 6px; border: 1px solid #f1f5f9; }
+        .reflexion-box { background: #fff5f8; border: 1px solid #fbcfe8; padding: 25px; border-radius: 8px; margin-top: 20px; }
+        @media (max-width: 900px) { .detail-wrapper { flex-direction: column; } }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <main class="max-w-5xl mx-auto bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+        
+       <a href="../index.html" class="inline-flex items-center gap-2 text-blue-600 hover:underline font-medium mb-8 text-sm">
+          ← Retour au Portfolio
+        </a>
+
+        <div class="detail-wrapper">
+            <div class="detail-preview">
+                <img src="../assets/images/sae-operateur/main-bgp.png" alt="Réseau Opérateur" class="w-100 rounded-lg border border-slate-200 shadow-sm">
+            </div>
+            <div class="detail-description">
+                <span class="text-xs font-mono text-blue-600 uppercase tracking-widest">SAÉ SEMESTRE 4</span>
+                <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-4">Infrastructures des réseaux opérateurs (RAEI)</h3>
+                
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                  <strong>Introduction :</strong> Ce projet s'inscrit dans la conception et le déploiement physique d'une infrastructure complète de Fournisseur d'Accès à Internet (FAI). Le défi technique résidait dans l'intégration de multiples technologies sur des routeurs réels et la coordination entre équipes.
+                </p>
+                
+                <div class="ac-box text-sm">
+                    <h4 class="font-bold text-slate-900 mb-2">🎯 Apprentissages Critiques :</h4>
+                    <ul class="space-y-1 text-slate-600">
+                        <li><strong>Compétence ROM1 :</strong> Gérer les infrastructures opérateurs</li>
+                        <li>• <strong class="text-blue-600">AC24.02ROM :</strong> Virtualiser des services réseaux (VRF/VPN)</li>
+                        <li>• <strong class="text-blue-600">AC24.03ROM :</strong> Comprendre l'architecture et les offres opérateurs</li>
+                        <li>• <strong class="text-blue-600">AC24.04ROM :</strong> Gérer le routage/commutation et interconnexions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            <h4 class="section-title">1. Description du projet</h4>
+            <p class="text-slate-600 text-sm leading-relaxed mb-3">
+                Notre binôme a pris en charge la partie RAEI, représentant deux segments critiques déployés directement sur les routeurs physiques de l'opérateur :
+            </p>
+            <ul class="list-disc pl-5 text-slate-600 text-sm leading-relaxed">
+                <li class="mb-2"><strong>Cœur IP-MPLS :</strong> Conception de l'infrastructure de routage de base, mise en place de la commutation par labels, isolation des flux clients via des environnements virtuels (VRF) et interconnexion inter-sites via le protocole MP-BGP.</li>
+                <li><strong>Accès client (PPPoE) :</strong> Configuration de l'équipement de bordure (CE) pour permettre son authentification centralisée auprès de l'opérateur et sa négociation IP dynamique.</li>
+            </ul>
+
+            <h4 class="section-title">2. Présentation et justification des résultats</h4>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                L'infrastructure a permis de fournir un service de bout en bout. Nous avons réussi à virtualiser les tables de routage pour séparer les clients de l'opérateur, et à monter un tunnel VPN fonctionnel entre deux sites distincts.
+            </p>
+            
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <img src="../assets/images/sae-operateur/preuve-vrf.png" alt="Configuration VRF">
+                    <p class="text-xs text-slate-500 mt-2 text-center italic">Preuve 1 : Création et isolation des tables de routage virtuelles (VRF) pour séparer les flux clients.</p>
+                </div>
+                
+                <div class="proof-card">
+                    <img src="../assets/images/sae-operateur/preuve-vpn.png" alt="Tunnel VPN Inter-entreprises">
+                    <p class="text-xs text-slate-500 mt-2 text-center italic">Preuve 2 :  Table de routage MP-BGP (VPNv4) sur le routeur PE1, confirmant l'isolation (VRF "ENTREPRISE") et l'apprentissage des routes du site client distant via iBGP.</p>
+                </div>
+            </div>
+            
+            <div class="mt-6">
+                <h5 class="font-bold text-slate-800 text-[15px] mb-2">Validation de la connectivité de bout en bout</h5>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Pour valider le fonctionnement global de l'infrastructure, un test de connectivité (ping) a été effectué entre les réseaux locaux des deux sites distants de l'entreprise. Le succès de cette communication démontre que le tunnel L3VPN est pleinement opérationnel et que les données traversent le cœur de réseau MPLS de l'opérateur de manière totalement transparente et isolée.
+                </p>
+            </div>
+
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <img src="../assets/images/sae-operateur/preuve-ping.png" alt="Test de connectivité Ping">
+                    <p class="text-xs text-slate-500 mt-2 text-center italic font-mono">
+                        Preuve 3 : Ping réussi entre le site A et le site B à travers le cœur de réseau opérateur.
+                    </p>
+                </div>
+            </div>
+            
+            <h4 class="section-title">3. Conclusion & Analyse Réflexive</h4>
+            <div class="reflexion-box text-sm leading-relaxed">
+                <h5 class="font-bold text-pink-900 mb-2">📊 Auto-évaluation :</h5>
+                <p class="text-slate-700 mb-4">
+                    Les <strong>AC24.02ROM, AC24.03ROM et AC24.04ROM</strong> sont validés. Je maîtrise désormais les concepts d'isolation logique sur des équipements physiques (VRF) et la mise en œuvre d'un cœur de réseau MPLS pour acheminer des VPN de niveau 3.
+                </p>
+                
+                <h5 class="font-bold text-pink-900 mb-2">🧠 Analyse Réflexive :</h5>
+                <p class="text-slate-700">
+                    Ce projet grandeur nature m'a confronté à la complexité de l'ingénierie opérateur. L'intégration de MP-BGP avec les VRF exigeait une rigueur absolue dans la distribution des Route Targets (RT) et Route Distinguishers (RD). Une simple erreur de syntaxe empêchait l'import des routes. Cette SAÉ m'a appris l'importance cruciale de la méthode et de la coordination lorsque le réseau physique est partagé par de multiples services.
+                </p>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

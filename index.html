@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — BUT Réseaux & Télécommunications</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e2e8f0;
+      --blue: #1a56e8;
+      --text: #0f172a;
+      --sub: #475569;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+    .section-title { font-size: 1.75rem; font-weight: 600; margin-bottom: 2rem; color: var(--text); border-left: 4px solid var(--blue); padding-left: 12px; }
+    
+    /* Logos réseaux sociaux */
+    .footer-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: 8px;
+      border: 1px solid var(--border); background: var(--surface);
+      color: var(--sub); transition: all 0.2s;
+    }
+    .footer-icon:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+    .footer-icon svg { width: 20px; height: 20px; }
+
+    /* Grille des projets */
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.8rem; }
+    
+    /* Design de la carte modifié pour l'image en haut */
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; transition: all 0.2s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); border-color: #cbd5e1; }
+    
+    /* Image d'aperçu tout en haut */
+    .card-preview-img { width: 100%; height: 170px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 0.5rem; background-color: #f1f5f9; }
+    
+    .tag { font-family: monospace; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 6px; background: #f1f5f9; color: var(--sub); align-self: flex-start; }
+    .tag-blue { background: #eef2fd; color: var(--blue); }
+    
+    .view-link { color: var(--blue); font-weight: 500; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px; margin-top: auto; padding-top: 0.5rem; text-decoration: none; }
+    .view-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <nav class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-[1100px] mx-auto px-6 py-4 flex justify-between items-center">
+      <span class="font-mono text-blue-600 font-bold tracking-wider">PORTFOLIO.RT</span>
+      <div class="hidden md:flex gap-6 text-sm font-medium text-slate-600">
+        <a href="#ecole" class="hover:text-blue-600 transition-colors">SAÉ</a>
+        <a href="#perso" class="hover:text-blue-600 transition-colors">Projets Persos</a>
+        <a href="cv.html" class="hover:text-blue-600 transition-colors">Mon CV</a>
+        <a href="#conclusion" class="hover:text-blue-600 transition-colors">Bilan S5</a>
+        <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+<header class="bg-white border-b border-slate-200 py-16 md:py-24">
+    <div class="wrap grid grid-cols-1 md:grid-cols-3 gap-8 items-center pt-0 pb-0">
+      <div class="md:col-span-2">
+        <span class="text-blue-600 font-mono text-xs uppercase tracking-wider block mb-3">Évaluation E-Portfolio 2026</span>
+        <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Serigne Amdy CISSE</h1>
+        
+        <p class="text-slate-600 leading-relaxed max-w-xl text-[15px]">
+          Actuellement en 2ème année de BUT Réseaux & Télécommunications. Ce portfolio retrace mon évolution technique et méthodologique à travers mes travaux académiques et mes maquettes personnelles. 
+        </p>
+        
+        <p class="text-slate-600 leading-relaxed max-w-xl text-[15px] mt-4">
+          Pour valider cette deuxième année, je suis activement à la recherche d'un stage. Je souhaite également poursuivre mon cursus en alternance à partir de septembre 2026, idéalement au sein d'une institution publique ou d'une structure engagée où je pourrai mettre mes compétences de sécurisation au service de projets qui ont du sens.
+        </p>
+      </div>
+      
+      <div class="flex justify-center md:justify-end">
+     <div class="w-48 h-48 rounded-2xl border-2 border-slate-200 flex items-center justify-center shadow-inner overflow-hidden">
+    <img src="assets/images/ma-photo.jpg" alt="Photo de profil" class="w-full h-full object-cover" style="object-position: top;">
+   </div>
+   </div>
+    </div>
+</header>
+
+  <section id="ecole" class="wrap pb-8">
+    <h2 class="section-title">Projets Académiques (SAÉ)</h2>
+    <p class="text-slate-500 text-sm mb-8 max-w-2xl">Travaux réalisés dans le cadre de la formation, démontrant l'acquisition des apprentissages critiques du référentiel R&T.</p>
+    
+    <div class="project-grid">
+      
+      <div class="card">
+        <img src="assets/images/sae-rom03/main-rom03.png" alt="Aperçu SAÉ 3.ROM.03" class="card-preview-img">
+        <span class="tag tag-blue mt-1">Compétence RT1</span>
+        <h3 class="font-bold text-lg text-slate-900">SAÉ 3.ROM.03 : Architecture d'Entreprise</h3>
+        <p class="text-sm text-slate-500">Déploiement d'une infrastructure sécurisée (VLANs, OSPF, Active Directory, Wi-Fi RADIUS, Web) et supervision avec Zabbix.</p>
+        <a href="projets/sae-3rom03.html" class="view-link">Voir l'analyse et les preuves →</a>
+      </div>
+
+      <div class="card">
+        <img src="assets/images/sae-telephonie/main-3cx.png" alt="Aperçu SAÉ 3.ROM.04" class="card-preview-img">
+        <span class="tag tag-blue mt-1">Compétence ROM2</span>
+        <h3 class="font-bold text-lg text-slate-900">SAÉ 3.ROM.04 : Téléphonie Multi-sites</h3>
+        <p class="text-sm text-slate-500">Mise en œuvre et déploiement d'une infrastructure de VoIP complète via la solution 3CX sur un environnement Linux.</p>
+        <a href="projets/sae-3cx.html" class="view-link">Voir l'analyse et les preuves →</a>
+      </div>
+
+      <div class="card">
+        <img src="assets/images/sae-301/main-lora.png" alt="Aperçu SAÉ 3.01" class="card-preview-img">
+        <span class="tag tag-blue mt-1">Compétence RT2</span>
+        <h3 class="font-bold text-lg text-slate-900">SAÉ 3.01 : Transmission IoT & LoRaWAN</h3>
+        <p class="text-sm text-slate-500">Mise en place d'un réseau LoRaWAN pour le suivi en temps réel et à basse consommation dans des zones non couvertes par la 4G/5G.</p>
+        <a href="projets/sae-301.html" class="view-link">Voir l'analyse et les preuves →</a>
+      </div>
+
+      <div class="card">
+        <img src="assets/images/sae-302/main-android.png" alt="Aperçu SAÉ 3.02" class="card-preview-img">
+        <span class="tag tag-blue mt-1">Compétence RT3</span>
+        <h3 class="font-bold text-lg text-slate-900">SAÉ 3.02 : App Android Communicante</h3>
+        <p class="text-sm text-slate-500">Développement sous Android Studio d'une application Client/Serveur exploitant le protocole TCP/IP pour l'échange de données.</p>
+        <a href="projets/sae-302.html" class="view-link">Voir l'analyse et les preuves →</a>
+      </div>
+
+      <div class="card">
+        <img src="assets/images/sae-operateur/main-bgp.png" alt="Aperçu SAÉ S4" class="card-preview-img">
+        <span class="tag tag-blue mt-1">Compétence ROM1</span>
+        <h3 class="font-bold text-lg text-slate-900">SAÉ S4 : Réseau Opérateur</h3>
+        <p class="text-sm text-slate-500">Conception et configuration d'une infrastructure de cœur de réseau avec déploiement des protocoles de routage dynamique OSPF et BGP.</p>
+        <a href="projets/sae-operateur.html" class="view-link">Voir l'analyse et les preuves →</a>
+      </div>
+
+      <div class="card">
+        <img src="assets/images/tp-ansible/main-ansible.png" alt="Aperçu TP Ansible" class="card-preview-img">
+        <span class="tag tag-blue mt-1">Compétence ROM1 / RT3</span>
+        <h3 class="font-bold text-lg text-slate-900">TP DevOps : Infra as Code Ansible</h3>
+        <p class="text-sm text-slate-500">Automatisation du provisionnement d'équipements réseaux (Cisco CSR1000v) et serveurs Linux (DHCP, PAT, Web) via des playbooks YAML.</p>
+        <a href="projets/tp-ansible.html" class="view-link">Voir l'analyse et les preuves →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="perso" class="bg-white border-t border-b border-slate-200">
+    <div class="wrap py-16">
+      <h2 class="section-title">Mes Projets Personnels</h2>
+      <p class="text-slate-500 text-sm mb-8 max-w-2xl">Projets réalisés en autonomie pour approfondir des concepts techniques spécifiques et diversifier mon champ de compétences.</p>
+      
+      <div class="project-grid">
+        
+        <div class="card">
+          <img src="assets/images/perso-pfsense/main-pfsense.png" alt="Aperçu pfSense" class="card-preview-img">
+          <span class="tag tag-blue mt-1">Compétence RT1 / RT2</span>
+          <h3 class="font-bold text-lg text-slate-900">Sécurisation : Firewall pfSense</h3>
+          <p class="text-sm text-slate-500">Mise en place d'un pare-feu périmétrique, filtrage inter-VLANs, règles de NAT et déploiement d'un accès VPN.</p>
+          <a href="projets/perso-pfsense.html" class="view-link">Voir l'analyse et les preuves →</a>
+        </div>
+
+        <div class="card">
+          <img src="assets/images/perso-ad/main-ad.png" alt="Aperçu Active Directory" class="card-preview-img">
+          <span class="tag tag-blue mt-1">Compétence RT1</span>
+          <h3 class="font-bold text-lg text-slate-900">Lab Active Directory</h3>
+          <p class="text-sm text-slate-500">Configuration d'un contrôleur de domaine Windows Server, structuration des OU et application de stratégies de groupe (GPO).</p>
+          <a href="projets/perso-ad.html" class="view-link">Voir l'analyse et les preuves →</a>
+        </div>
+
+        <div class="card">
+          <img src="assets/images/perso-glpi/glpi.png" alt="Aperçu GLPI" class="card-preview-img">
+          <span class="tag tag-blue mt-1">Compétence RT3</span>
+          <h3 class="font-bold text-lg text-slate-900">Gestion de Parc : GLPI</h3>
+          <p class="text-sm text-slate-500">Déploiement d'une solution de ticketing et d'inventaire automatisé du matériel informatique via FusionInventory et MariaDB.</p>
+          <a href="projets/perso-glpi.html" class="view-link">Voir l'analyse et les preuves →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="conclusion" class="bg-slate-900 text-white">
+    <div class="wrap py-16">
+      <span class="text-blue-400 font-mono text-xs uppercase tracking-wider block mb-2">Bilan de l'évaluation</span>
+      <h2 class="text-3xl font-bold mb-8">Conclusion Générale & Analyse Réflexive (Semestre 5)</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-300 text-[15px] leading-relaxed">
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-3 flex items-center gap-2">🛠️ Bilan des Compétences</h3>
+          <p class="mb-4">
+            Ce semestre a été déterminant dans ma capacité à lier des technologies complexes. Les Situations d'Apprentissage et d'Évaluation (SAÉ) m'ont permis de consolider la gestion des communications unifiées (ROM2) et de comprendre l'architecture des réseaux de grande envergure (ROM1). 
+          </p>
+          <p>
+            En parallèle, j'ai tenu à développer mon autonomie à travers des maquettes personnelles. Travailler sur pfSense, Active Directory et GLPI m'a permis de valider concrètement des apprentissages critiques liés à l'administration des réseaux (RT1) et à la création d'outils informatiques (RT3).
+          </p>
+        </div>
+        
+        <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-6">
+          <h3 class="text-white font-semibold text-lg mb-3 flex items-center gap-2">🧠 Recul & Perspectives</h3>
+          <p class="mb-4">
+            L'enseignement majeur de ce semestre est méthodologique. Face à une panne réseau ou un problème de routage applicatif (comme le NAT en VoIP), j'ai appris à ne plus agir de manière précipitée, mais à capturer, lire les trames et analyser la logique des protocoles.
+          </p>
+          <p>
+            Pour la suite de mon parcours, je souhaite mettre cette rigueur technique au profit de structures où la continuité de service et la protection des données ont un impact fort, notamment dans le secteur public.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="bg-slate-950 text-slate-500 py-12 text-center text-xs border-t border-slate-900">
+    <div class="max-w-2xl mx-auto mb-6">
+      <h3 class="text-white font-semibold text-base mb-2">Me contacter pour la soutenance</h3>
+      <p class="text-slate-400 text-sm mb-4">serigne.amdy.cisse@etu.univ-st-etienne.fr | France — Disponible en mobilité</p>
+    </div>
+    
+    <div class="flex justify-center gap-4 mb-6">
+      <a href="https://linkedin.com/in/votre-profil" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/votre-pseudo" target="_blank" rel="noopener noreferrer" class="footer-icon" aria-label="GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.753.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+    </div>
+    <p class="text-slate-600">© 2026 Serigne Amdy CISSE · Portfolio BUT Réseaux & Télécommunications</p>
+  </footer>
+
+</body>
+</html>

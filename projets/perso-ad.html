@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail - Projet Personnel : Sécurisation Active Directory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #f8fafc; color: #0f172a; }
+        .detail-wrapper { display: flex; gap: 40px; margin-top: 25px; }
+        .detail-preview { flex: 1.2; }
+        .detail-description { flex: 1; }
+        .ac-box { background: #eef2fd; border-left: 4px solid #1a56e8; padding: 20px; border-radius: 4px; }
+        .section-title { margin-top: 40px; margin-bottom: 15px; color: #0f172a; font-weight: 600; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 1.25rem; }
+        .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 15px; }
+        .proof-card { background: #fff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; }
+        .proof-card img { width: 100%; border-radius: 6px; border: 1px solid #f1f5f9; }
+        .reflexion-box { background: #fff5f8; border: 1px solid #fbcfe8; padding: 25px; border-radius: 8px; margin-top: 20px; }
+        @media (max-width: 900px) { .detail-wrapper { flex-direction: column; } }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <main class="max-w-5xl mx-auto bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+        
+        <a href="../index.html" class="inline-flex items-center gap-2 text-blue-600 hover:underline font-medium mb-8 text-sm">
+          ← Retour au Portfolio
+        </a>
+
+        <div class="detail-wrapper">
+            <div class="detail-preview">
+                <img src="../assets/images/perso-ad/main-ad.png" alt="Architecture Active Directory" class="w-100 rounded-lg border border-slate-200 shadow-sm">
+            </div>
+            <div class="detail-description">
+                <span class="text-xs font-mono text-blue-600 uppercase tracking-widest">Projet Personnel</span>
+                <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-4">Architecture & Sécurisation avancée d'un domaine Active Directory</h3>
+                
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                  <strong>Introduction :</strong> Ce projet personnel est dédié au déploiement d'une infrastructure d'identité résiliente et hautement sécurisée basée sur Windows Server 2022. L'objectif est d'assurer une gestion centralisée rigoureuse d'un parc informatique d'entreprise, en limitant la surface d'attaque grâce à des stratégies de restriction avancées et une topologie multi-site.
+                </p>
+                
+                <div class="ac-box text-sm">
+                    <h4 class="font-bold text-slate-900 mb-2">🎯 Apprentissages Critiques :</h4>
+                    <ul class="space-y-3 text-slate-600">
+                        <li>
+                            <strong>Compétence RT1 : Administrer les réseaux et l'Internet</strong><br>
+                            • <strong class="text-blue-600">AC21.03 :</strong> Déployer des postes clients et des solutions virtualisées adaptées à une situation donnée<br>
+                            • <strong class="text-blue-600">AC21.04 :</strong> Déployer des services réseaux avancés (Annuaire AD DS / Réplication / DNS direct)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            
+            <h4 class="section-title">1. Description du projet</h4>
+            <div class="text-slate-600 text-sm leading-relaxed space-y-3">
+                <p>
+                    Le projet a consisté à concevoir de bout en bout l'architecture logique et physique d'un domaine d'entreprise. Les opérations majeures se déclinent en trois grands axes :
+                </p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><strong>Fondations et Haute Disponibilité :</strong> Préparation des serveurs, configuration d'un premier contrôleur de domaine (DC) maître et ajout d'un second contrôleur pour fiabiliser l'architecture locale par réplication. Structuration de l'arborescence des Unités d'Organisation (OU), déclaration des ressources et jonction des postes clients au domaine (AC21.03).</li>
+                    <li><strong>Analyse de Sécurité et Organisation Multi-site :</strong> Audit de la configuration via l'outil d'analyse des bonnes pratiques Microsoft (BPA). Organisation logique de la topologie pour un second site géographique distant en déployant un <strong>Contrôleur de Domaine en Lecture Seule (RODC)</strong> pour protéger l'annuaire en cas de compromission physique du site distant.</li>
+                    <li><strong>Durcissement du Parc (Hardening) et Sauvegarde :</strong> Application d'une politique de mots de passe affinée (PSO), mise en place de Stratégies de Groupe (GPO) restrictives (audit et restriction des accès réseau entrants, attribution stricte des droits d'ouverture de session) et blocage de l'exécution de logiciels non autorisés (AppLocker/SRP). Le projet intègre enfin une stratégie de sauvegarde de l'état du système (System State Backup) pour prémunir l'entreprise de tout sinistre.</li>
+                </ul>
+            </div>
+
+            <h4 class="section-title">2. Présentation et justification des résultats</h4>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                La conformité de l'architecture a été validée par des tests d'application de GPO de restriction et par la vérification de la réplication unidirectionnelle du contrôleur RODC.
+            </p>
+            
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <img src="../assets/images/perso-ad/gpo-config.png" alt="Déploiement Stratégies de Groupe">
+                    <p class="text-xs text-slate-500 mt-2 text-center italic">
+                        Preuve 1 : Éditeur de gestion des GPO démontrant le durcissement du parc (restrictions des accès réseaux entrants et blocage des exécutables non autorisés).
+                    </p>
+                </div>
+                
+                <div class="proof-card">
+                    <img src="../assets/images/perso-ad/rodc-status.png" alt="Contrôleur de Domaine RODC">
+                    <p class="text-xs text-slate-500 mt-2 text-center italic">
+                        Preuve 2 : Console "Sites et services Active Directory" validant le déploiement du RODC et l'impossibilité d'écrire des modifications depuis la filiale distante.
+                    </p>
+                </div>
+
+                <div class="proof-card">
+                    <img src="../assets/images/perso-ad/ad-backup.png" alt="Sauvegarde Windows Server Backup">
+                    <p class="text-xs text-slate-500 mt-2 text-center italic">
+                        Preuve 3 : Rapport de succès de l'outil Windows Server Backup confirmant la sauvegarde complète de l'état du système (System State) contenant la base AD.
+                    </p>
+                </div>
+            </div>
+
+            <h4 class="section-title">3. Conclusion & Analyse Réflexive</h4>
+            <div class="reflexion-box text-sm leading-relaxed">
+                <h5 class="font-bold text-pink-900 mb-2">📊 Auto-évaluation sur les Apprentissages Critiques :</h5>
+                <p class="text-slate-700 mb-4">
+                    Les <strong>AC21.03 et AC21.04</strong> sont acquis. J'ai prouvé ma capacité à déployer de manière virtuelle des machines clientes et des serveurs redondants (AC21.03), tout en administrant des fonctions avancées de l'infrastructure d'entreprise comme la topologie multi-site, la réplication et la sécurisation par stratégies d'objets (AC21.04).
+                </p>
+                
+                <h5 class="font-bold text-pink-900 mb-2">🧠 Analyse Réflexive :</h5>
+                <p class="text-slate-700">
+                    <strong>Description des faits :</strong> Installation de deux contrôleurs locaux, structuration en OU, configuration d'un RODC distant, application de GPO de restriction logicielle d'accès, et réalisation d'une sauvegarde System State.<br><br>
+                    <strong>Expérience subjective :</strong> L'implémentation du RODC (Read-Only Domain Controller) a été l'étape la plus enrichissante. Comprendre la gestion de la politique de réplication des mots de passe (PRP) — c'est-à-dire décider quels secrets d'utilisateurs ont le droit d'être mis en cache locale sur le site distant — m'a demandé une analyse fine du compromis entre la sécurité (si le serveur est volé) et la disponibilité du réseau (si le lien WAN coupe).<br><br>
+                    <strong>Analyse et évaluation :</strong> L'utilisation du Best Practices Analyzer de Microsoft m'a fait réaliser qu'un annuaire fonctionnel n'est pas forcément un annuaire sécurisé. Les alertes m'ont poussé à corriger la configuration des redirecteurs DNS et à affiner la politique de mot de passe (PSO) pour les comptes de services.<br><br>
+                    <strong>Conclusions et plans pour l'avenir :</strong> Ce projet m'a donné d'excellentes compétences en ingénierie des systèmes Microsoft d'entreprise. Pour aller plus loin, j'aimerais lier cette infrastructure Active Directory à une solution d'authentification unique moderne de type Azure AD (Entra ID) afin d'étudier les mécanismes de synchronisation hybride Cloud/On-Premise.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
