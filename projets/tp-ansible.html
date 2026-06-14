@@ -3,113 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détail - TP : Automatisation Infra avec Ansible</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Étude de cas : Infrastructure as Code (Ansible) — Serigne Amdy CISSE</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
         body { font-family: 'Poppins', sans-serif; background-color: #f8fafc; color: #0f172a; }
-        .detail-wrapper { display: flex; gap: 40px; margin-top: 25px; }
+        .detail-wrapper { display: flex; gap: 40px; margin-top: 15px; }
         .detail-preview { flex: 1.2; }
         .detail-description { flex: 1; }
-        .ac-box { background: #eef2fd; border-left: 4px solid #1a56e8; padding: 20px; border-radius: 4px; }
-        .section-title { margin-top: 40px; margin-bottom: 15px; color: #0f172a; font-weight: 600; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 1.25rem; }
+        
+        /* Badges techniques */
+        .tags-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .tech-badge { font-family: monospace; font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 6px; background: #eef2fd; color: #1a56e8; border: 1px solid #dbeafe; font-weight: 500; }
+        
+        .section-title { margin-top: 40px; margin-bottom: 15px; color: #0f172a; font-weight: 700; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 1.25rem; }
+        
         .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 15px; }
-        .proof-card { background: #fff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; }
+        .proof-card { background: #ffffff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
         .proof-card img { width: 100%; border-radius: 6px; border: 1px solid #f1f5f9; }
-        .reflexion-box { background: #fff5f8; border: 1px solid #fbcfe8; padding: 25px; border-radius: 8px; margin-top: 20px; }
+        
+        .highlight-box { background: #f8fafc; border-left: 4px solid #1a56e8; padding: 20px; border-radius: 0 8px 8px 0; margin-top: 20px; }
+        
         @media (max-width: 900px) { .detail-wrapper { flex-direction: column; } }
     </style>
 </head>
 <body class="p-6 md:p-12">
 
-    <main class="max-w-5xl mx-auto bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+    <main class="max-w-5xl mx-auto bg-white rounded-xl border border-slate-200 p-8 md:p-10 shadow-lg">
         
-        <a href="../index.html" class="inline-flex items-center gap-2 text-blue-600 hover:underline font-medium mb-8 text-sm">
-          ← Retour au Portfolio
-        </a>
+        <div class="flex justify-between items-center mb-8">
+            <a href="../index.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors font-medium text-sm">
+            ← Retour au Portfolio
+            </a>
+            <a href="https://github.com/SerigneAmdyCISSE/td_ansible_infra" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-lg transition-colors border border-slate-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.753.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                Voir sur GitHub
+            </a>
+        </div>
 
         <div class="detail-wrapper">
             <div class="detail-preview">
-                <img src="../assets/images/tp-ansible/main-ansible.png" alt="Playbook Ansible sur VS Code" class="w-100 rounded-lg border border-slate-200 shadow-sm">
+                <img src="../assets/images/tp-ansible/main-ansible.png" alt="Playbook Ansible sur VS Code" class="w-full rounded-lg border border-slate-200 shadow-sm object-cover h-[300px]">
             </div>
-            <div class="detail-description">
-                <span class="text-xs font-mono text-blue-600 uppercase tracking-widest">TP 01 R4.ROM.09</span>
-                <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-4">Outils DevOps : Infrastructure as Code avec Ansible</h3>
+            <div class="detail-description flex flex-col justify-center">
+                <span class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1">DevOps & NetOps</span>
+                <h1 class="text-3xl font-bold text-slate-900 leading-tight mb-4">Infrastructure as Code : Automatisation Ansible</h1>
                 
-                <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                  <strong>Introduction :</strong> Ce projet pratique vise à mettre en œuvre une approche DevOps (Infrastructure as Code) via Ansible. L'objectif était de remplacer la configuration manuelle (CLI) par des "Playbooks" automatisés pour provisionner un routeur Cisco CSR1000v et un serveur web Debian.
+                <p class="text-slate-600 text-[15px] leading-relaxed mb-4">
+                  Mise en œuvre d'une approche DevOps (Infrastructure as Code) pour remplacer la configuration manuelle (CLI) par des "Playbooks" automatisés. L'objectif : provisionner un routeur Cisco CSR1000v et un serveur web Debian Linux de manière reproductible.
                 </p>
                 
-                <div class="ac-box text-sm">
-                    <h4 class="font-bold text-slate-900 mb-2">🎯 Apprentissages Critiques :</h4>
-                    <ul class="space-y-3 text-slate-600">
-                        <li>
-                            <strong>Compétence ROM1 : Gérer les infrastructures opérateurs</strong><br>
-                            • <strong class="text-blue-600">AC24.05ROM :</strong> Automatiser la gestion des équipements réseaux
-                        </li>
-                        <li>
-                            <strong>Compétence RT3 : Créer des outils informatiques</strong><br>
-                            • <strong class="text-blue-600">AC23.01 :</strong> Automatiser l'administration système avec des scripts
-                        </li>
-                        <li>
-                            <strong>Compétence RT1 : Administrer les réseaux</strong><br>
-                            • <strong class="text-blue-600">AC21.04 :</strong> Déployer des services réseaux avancés (DHCP, NAT/PAT)
-                        </li>
-                    </ul>
+                <div class="tags-container">
+                    <span class="tech-badge">Ansible</span>
+                    <span class="tech-badge">YAML / Git</span>
+                    <span class="tech-badge">Cisco IOS</span>
+                    <span class="tech-badge">Debian Linux</span>
+                    <span class="tech-badge">Netmiko (Python)</span>
                 </div>
             </div>
         </div>
 
-        <div class="mt-8">
+        <div class="mt-10">
             
-            <h4 class="section-title">1. Description du projet</h4>
-            <div class="text-slate-600 text-sm leading-relaxed space-y-3">
-                <p>À l'aide de l'IDE Visual Studio Code et des extensions Remote-SSH, j'ai développé des playbooks YAML exploitant les modules réseau Cisco (<code>cisco.ios.ios_l3_interfaces</code>, <code>cisco.ios.ios_config</code>). L'infrastructure automatisée comprend :</p>
-                <ul class="list-disc pl-5 space-y-1">
-                    <li><strong>Plan d'adressage IP :</strong> Déploiement automatisé d'un client DHCP sur l'interface WAN et d'adresses IP statiques sur 3 interfaces LAN.</li>
-                    <li><strong>Service DHCP :</strong> Configuration du routeur Cisco en tant que serveur DHCP pour le LAN Entreprise, en garantissant l'idempotence des tâches Ansible.</li>
-                    <li><strong>Routage & NAT Dynamique (PAT) :</strong> Utilisation de boucles (<code>loop</code>) dans Ansible pour appliquer dynamiquement une ACL et la fonction NAT sur de multiples interfaces.</li>
-                    <li><strong>Redirection de ports (Port Forwarding) :</strong> Configuration de règles NAT statiques pour exposer le serveur Web interne et le serveur d'administration SSH.</li>
+            <h2 class="section-title">1. Contexte & Objectifs</h2>
+            <div class="text-slate-600 text-[15px] leading-relaxed space-y-3">
+                <p>
+                    Aujourd'hui, l'administration réseau moderne ne se fait plus équipement par équipement. Ce projet m'a permis de déployer un réseau hétérogène complet de manière 100% scriptée. Le but était d'utiliser Ansible pour lier le monde du réseau (Cisco) et celui des systèmes (Serveur Web Linux), le tout versionné sur un dépôt Git pour garantir la traçabilité des configurations.
+                </p>
+            </div>
+
+            <h2 class="section-title">2. Solutions Techniques Déployées</h2>
+            <div class="text-slate-600 text-[15px] leading-relaxed space-y-3">
+                <p>Le déploiement s'articule autour de playbooks structurés, s'appuyant sur un inventaire et des variables d'hôtes (Host_vars) :</p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Configuration du Routeur Cisco :</strong> Automatisation des interfaces réseaux, déploiement du service DHCP, et implémentation du NAT/PAT (dynamique et redirection de ports) via les modules <code>cisco.ios</code>.</li>
+                    <li><strong>Déploiement du Serveur Web (Linux) :</strong> Utilisation d'Ansible pour provisionner et démarrer les services d'un serveur Debian distant de manière transparente.</li>
+                    <li><strong>Idempotence des tâches :</strong> Logique de script garantissant que l'exécution multiple du playbook ne génère pas d'erreurs ou de configurations en doublon (ex: gestion intelligente de la création du pool DHCP).</li>
+                    <li><strong>Automatisation des tests (Netmiko) :</strong> Scripting d'une série de tests post-déploiement pour vérifier automatiquement la connectivité (Ping), la résolution de noms (DNS) et la réponse HTTP depuis la machine Ansible.</li>
                 </ul>
             </div>
 
-            <h4 class="section-title">2. Présentation et justification des résultats</h4>
-            <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                L'exécution des playbooks via la commande <code>ansible-playbook</code> a permis de provisionner le réseau et les services de bout en bout sans aucune intervention manuelle directe sur les équipements.
+            <h2 class="section-title">3. Résultats & Validation</h2>
+            <p class="text-slate-600 text-[15px] leading-relaxed mb-6">
+                L'exécution d'une simple commande <code>ansible-playbook</code> permet de reconstruire l'infrastructure réseau et applicative à l'identique en quelques secondes, sans aucune intervention manuelle en ligne de commande.
             </p>
             
             <div class="proof-grid mb-8">
-                
                 <div class="proof-card">
                     <img src="../assets/images/tp-ansible/preuve-interfaces.png" alt="Configuration des interfaces IP">
-                    <p class="text-xs text-slate-500 mt-2 text-center italic">Preuve 1 : Script de déploiement des adresses IP et de l'interface WAN en DHCP.</p>
+                    <p class="text-xs text-slate-500 mt-3 text-center">
+                        <strong>Scripting Réseau :</strong> Déploiement des adresses IP et de l'interface WAN en client DHCP via YAML.
+                    </p>
                 </div>
                 
                 <div class="proof-card">
                     <img src="../assets/images/tp-ansible/preuve-dhcp.png" alt="Mise en place du DHCP">
-                    <p class="text-xs text-slate-500 mt-2 text-center italic">Preuve 2 : Automatisation du serveur DHCP avec suppression préalable pour garantir l'idempotence.</p>
+                    <p class="text-xs text-slate-500 mt-3 text-center">
+                        <strong>Idempotence :</strong> Automatisation du serveur DHCP avec suppression préalable pour éviter les erreurs de doublons (Cisco IOS).
+                    </p>
                 </div>
 
                 <div class="proof-card">
                     <img src="../assets/images/tp-ansible/preuve-pat.png" alt="Configuration NAT/PAT">
-                    <p class="text-xs text-slate-500 mt-2 text-center italic">Preuve 3 : Configuration dynamique du PAT (surcharge et redirection de ports) à l'aide de boucles.</p>
+                    <p class="text-xs text-slate-500 mt-3 text-center">
+                        <strong>Logique avancée :</strong> Configuration dynamique du PAT (Port Forwarding) en itérant sur des listes avec l'attribut <code>loop</code>.
+                    </p>
                 </div>
-
             </div>
 
-            <h4 class="section-title">3. Conclusion & Analyse Réflexive</h4>
-            <div class="reflexion-box text-sm leading-relaxed">
-                <h5 class="font-bold text-pink-900 mb-2">📊 Auto-évaluation sur les Apprentissages Critiques :</h5>
-                <p class="text-slate-700 mb-4">
-                    Les <strong>AC24.05ROM et AC23.01</strong> sont pleinement validés. J'ai acquis la logique "Infrastructure as Code", capable de scripter l'état désiré d'une machine (Cisco ou Linux) et de gérer des configurations massives en limitant les erreurs humaines.
+            <h2 class="section-title">4. Bilan technique & Expertise acquise</h2>
+            <div class="highlight-box text-[15px] leading-relaxed text-slate-700">
+                <p class="mb-3">
+                    <strong>Rigueur DevOps & Git :</strong> L'automatisation exige une rigueur syntaxique absolue. Coupler Ansible à un dépôt Git m'a permis d'intégrer la notion de "Version Control" au réseau de la même manière qu'un développeur avec son code source.
                 </p>
-                
-                <h5 class="font-bold text-pink-900 mb-2">🧠 Analyse Réflexive (Résolution de problèmes) :</h5>
-                <p class="text-slate-700">
-                    L'automatisation exige une rigueur syntaxique absolue, comme m'ont prouvé les différentes erreurs rencontrées :<br><br>
-                    <strong>1. Évolution des modules Ansible :</strong> Lors de la configuration des IPs, j'ai tenté d'utiliser l'attribut <code>mask</code> séparément. Le playbook a échoué car la version actuelle du module <code>cisco.ios.ios_l3_interfaces</code> exige la notation CIDR (ex: <code>192.168.2.1/24</code>). La lecture de la documentation m'a permis d'adapter le code.<br><br>
-                    <strong>2. Le concept d'idempotence :</strong> Le module <code>ios_config</code> ne gère pas nativement l'état des pools DHCP. Ansible crashait lors d'une seconde exécution car Cisco refusait de recréer un pool existant. Pour rendre mon script idempotent, j'ai ajouté une tâche préalable supprimant le pool existant.<br><br>
-                    <strong>3. Logique réseau (Port Forwarding) :</strong> J'ai initialement perdu l'accès SSH à ma machine d'administration car j'avais inversé les ports (2222 vers 22) dans ma règle NAT statique. Cette erreur formatrice m'a rappelé qu'Ansible applique aveuglément ce qu'on lui dicte : l'outil ne remplace pas l'expertise réseau de l'administrateur.
+                <p>
+                    <strong>Le réseau dirigé par les tests (Test-Driven Networking) :</strong> L'intégration de la bibliothèque <code>netmiko</code> pour valider automatiquement la configuration du serveur (ping, requêtes DNS et web) post-déploiement a été une révélation. J'ai compris que provisionner un équipement ne suffit pas, il faut que le système valide lui-même que le service rendu aux utilisateurs est opérationnel.
                 </p>
             </div>
 

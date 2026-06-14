@@ -3,89 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détail - SAÉ 3.02 : App Android Communicante</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Étude de cas : Communications Unifiées VoIP — Serigne Amdy CISSE</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
         body { font-family: 'Poppins', sans-serif; background-color: #f8fafc; color: #0f172a; }
-        .detail-wrapper { display: flex; gap: 40px; margin-top: 25px; }
+        .detail-wrapper { display: flex; gap: 40px; margin-top: 15px; }
         .detail-preview { flex: 1.2; }
         .detail-description { flex: 1; }
-        .ac-box { background: #eef2fd; border-left: 4px solid #1a56e8; padding: 20px; border-radius: 4px; }
-        .section-title { margin-top: 40px; margin-bottom: 15px; color: #0f172a; font-weight: 600; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 1.25rem; }
+        
+        /* Badges techniques */
+        .tags-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+        .tech-badge { font-family: monospace; font-size: 0.75rem; padding: 0.3rem 0.8rem; border-radius: 6px; background: #eef2fd; color: #1a56e8; border: 1px solid #dbeafe; font-weight: 500; }
+        
+        .section-title { margin-top: 40px; margin-bottom: 15px; color: #0f172a; font-weight: 700; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 1.25rem; }
+        
         .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 15px; }
-        .proof-card { background: #fff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; }
-        .proof-card img { width: 100%; border-radius: 6px; border: 1px solid #f1f5f9; }
-        .reflexion-box { background: #fff5f8; border: 1px solid #fbcfe8; padding: 25px; border-radius: 8px; margin-top: 20px; }
+        .proof-card { background: #ffffff; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .proof-card video, .proof-card img { width: 100%; border-radius: 6px; border: 1px solid #f1f5f9; object-fit: cover; }
+        
+        .highlight-box { background: #f8fafc; border-left: 4px solid #1a56e8; padding: 20px; border-radius: 0 8px 8px 0; margin-top: 20px; }
+        
         @media (max-width: 900px) { .detail-wrapper { flex-direction: column; } }
     </style>
 </head>
 <body class="p-6 md:p-12">
 
-    <main class="max-w-5xl mx-auto bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
+    <main class="max-w-5xl mx-auto bg-white rounded-xl border border-slate-200 p-8 md:p-10 shadow-lg">
         
-     <a href="../index.html" class="inline-flex items-center gap-2 text-blue-600 hover:underline font-medium mb-8 text-sm">
-          ← Retour au Portfolio
-        </a>
+        <div class="flex justify-between items-center mb-8">
+            <a href="../index.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors font-medium text-sm">
+            ← Retour au Portfolio
+            </a>
+            <a href="https://github.com/SerigneAmdyCISSE/projet-voip-3cx" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-lg transition-colors border border-slate-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.753.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                Voir sur GitHub
+            </a>
+        </div>
 
         <div class="detail-wrapper">
             <div class="detail-preview">
-                <img src="../assets/images/sae-telephonie/main-3cx.png" alt="Aperçu 3CX" class="w-100 rounded-lg border border-slate-200 shadow-sm">
+                <img src="../assets/images/sae-telephonie/main-3cx.png" alt="Aperçu 3CX" class="w-full rounded-lg border border-slate-200 shadow-sm object-cover h-[300px]">
             </div>
-            <div class="detail-description">
-                <span class="text-xs font-mono text-blue-600 uppercase tracking-widest">SAÉ 3.ROM.04</span>
-                <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-4">Déploiement d'une infrastructure de téléphonie IP</h3>
+            <div class="detail-description flex flex-col justify-center">
+                <span class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-1">Télécommunications Unifiées</span>
+                <h1 class="text-3xl font-bold text-slate-900 leading-tight mb-4">Déploiement d'une infrastructure de téléphonie IP (VoIP)</h1>
                 
-                <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                  <strong>Introduction :</strong> Ce projet simule l'interconnexion des services de communication vocale d'une entreprise disposant de plusieurs agences distantes, nécessitant l'unification des plans de numérotation.
+                <p class="text-slate-600 text-[15px] leading-relaxed mb-4">
+                  Déploiement de bout en bout d'un autocommutateur téléphonique IP (IPBX 3CX). Ce projet simule l'interconnexion sécurisée des services vocaux d'une entreprise multi-sites avec gestion avancée des groupes d'appels et Serveur Vocal Automatisé (SVA).
                 </p>
                 
-                <div class="ac-box text-sm">
-                    <h4 class="font-bold text-slate-900 mb-2">🎯 Apprentissages Critiques :</h4>
-                    <ul class="space-y-1 text-slate-600">
-                        <li><strong>Compétence ROM2 :</strong> Mettre en œuvre le système de téléphonie</li>
-                        <li>• <strong class="text-blue-600">AC25.01ROM :</strong> Choisir une architecture et déployer des services de ToIP</li>
-                        <li>• <strong class="text-blue-600">AC25.02ROM :</strong> Administrer un service de téléphonie pour l'entreprise</li>
-                    </ul>
+                <div class="tags-container">
+                    <span class="tech-badge">3CX IPBX</span>
+                    <span class="tech-badge">SVA / SVI</span>
+                    <span class="tech-badge">Groupes d'appels</span>
+                    <span class="tech-badge">SIP Trunking</span>
+                    <span class="tech-badge">Firewall Stormshield</span>
                 </div>
             </div>
         </div>
 
-        <div class="mt-8">
-            <h4 class="section-title">1. Description du projet</h4>
-            <p class="text-slate-600 text-sm leading-relaxed">
-                Le travail consistait à déployer un IPBX 3CX sur une machine Debian. J'ai configuré l'ensemble des règles de routage des appels, créé les comptes utilisateurs (extensions SIP) pour les terminaux, et interconnecté le système via un Trunk SIP. La priorité résidait dans le respect de la sécurité des accès et la mise en œuvre d'un plan de numérotation cohérent.
-            </p>
+        <div class="mt-10">
+            
+            <h2 class="section-title">1. Contexte & Objectifs</h2>
+            <div class="text-slate-600 text-[15px] leading-relaxed space-y-3">
+                <p>
+                    Au sein du parcours ROM (Réseaux Opérateurs & Multimédia), la maîtrise des flux temps réel est critique. Ce projet d'ingénierie visait à installer, configurer et sécuriser un système de téléphonie complet. L'enjeu était d'assurer un plan de numérotation interne optimisé (gestion des flux entrants complexes) tout en ouvrant l'infrastructure vers l'extérieur au travers d'un pare-feu matériel (Stormshield).
+                </p>
+            </div>
 
-            <h4 class="section-title">2. Présentation et justification des résultats</h4>
-            <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                Les tests de validation démontrent le bon fonctionnement du routage. Les flux audio circulent de manière bidirectionnelle sans coupure grâce à un paramétrage adéquat du pare-feu.
+            <h2 class="section-title">2. Solutions Techniques Déployées</h2>
+            <div class="text-slate-600 text-[15px] leading-relaxed space-y-3">
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Configuration du Routage (SVA & Groupes) :</strong> Mise en place d'un Serveur Vocal Automatisé (SVA/SVI) pour qualifier et diriger les appels entrants en fonction des choix de l'utilisateur (DTMF). Création de Groupes d'appels paramétrés (Ring Groups) pour distribuer intelligemment la charge téléphonique entre les différents collaborateurs d'un service.</li>
+                    <li><strong>Interconnexion externe (Trunking) :</strong> Configuration d'un Trunk SIP pour relier l'IPBX à un opérateur télécom simulé, et établissement d'un pont (Bridge) pour interconnecter le site principal avec une succursale distante.</li>
+                    <li><strong>Sécurisation Périmétrique (Stormshield) :</strong> Implémentation du pare-feu en coupure. Création des règles NAT/PAT et d'ouverture de ports spécifiques pour autoriser la signalisation SIP (Port 5060) et les plages de ports dynamiques pour le transport de la voix (RTP).</li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">3. Résultats & Validation</h2>
+            <p class="text-slate-600 text-[15px] leading-relaxed mb-6">
+                L'infrastructure permet de router les appels internes et externes avec succès. Les démonstrations ci-dessous illustrent le comportement dynamique du système lors de sollicitations simultanées.
             </p>
             
             <div class="proof-grid">
                 <div class="proof-card">
-                    <img src="../assets/images/sae-telephonie/capture-extensions.png" alt="Extensions valides">
-                    <p class="text-xs text-slate-500 mt-2 text-center italic">Preuve 1 : Tableau de bord affichant le statut connecté des postes SIP.</p>
+                    <video autoplay loop muted playsinline>
+                        <source src="../assets/images/sae-telephonie/demo-groupe.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de la vidéo.
+                    </video>
+                    <p class="text-xs text-slate-500 mt-3 text-center">
+                        <strong>Démonstration - Groupe d'appels :</strong> Distribution automatique d'un appel entrant vers un groupement de postes cibles (Ring Group).
+                    </p>
                 </div>
+                
                 <div class="proof-card">
-                    <img src="../assets/images/sae-telephonie/capture-trunk.png" alt="Trunk SIP actif">
-                    <p class="text-xs text-slate-500 mt-2 text-center italic">Preuve 2 : Journal attestant de l'enregistrement réussi du Trunk inter-sites.</p>
+                    <video autoplay loop muted playsinline>
+                        <source src="../assets/images/sae-telephonie/demo-sva.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de la vidéo.
+                    </video>
+                    <p class="text-xs text-slate-500 mt-3 text-center">
+                        <strong>Démonstration - Serveur Vocal Automatisé :</strong> Navigation à travers le SVA/SVI et routage dynamique basé sur la saisie utilisateur.
+                    </p>
                 </div>
             </div>
 
-            <h4 class="section-title">3. Conclusion & Analyse Réflexive</h4>
-            <div class="reflexion-box text-sm leading-relaxed">
-                <h5 class="font-bold text-pink-900 mb-2">📊 Auto-évaluation :</h5>
-                <p class="text-slate-700 mb-4">
-                    Je valide l'acquisition des <strong>AC25.01ROM</strong> et <strong>AC25.02ROM</strong>. Le livrable est fonctionnel et j'ai su mener à bien les tâches d'administration et d'interconnexion réseau en autonomie.
+            <h2 class="section-title">4. Bilan technique & Expertise acquise</h2>
+            <div class="highlight-box text-[15px] leading-relaxed text-slate-700">
+                <p class="mb-3">
+                    <strong>Dépannage réseau avancé (Troubleshooting) :</strong> Lors des tests externes, j'ai été confronté au célèbre problème d'absence de son ("One-Way Audio") et à des touches inopérantes sur le SVA (problème DTMF). J'ai dû modifier la politique de gestion des connexions filles sur le pare-feu Stormshield pour autoriser les flux RTP asymétriques à traverser le NAT.
                 </p>
-                
-                <h5 class="font-bold text-pink-900 mb-2">🧠 Analyse Réflexive :</h5>
-                <p class="text-slate-700">
-                    <strong>Difficultés & Résolutions :</strong> Lors des tests, j'ai fait face à un problème d'absence d'audio d'un côté de la communication (One-Way Audio). L'analyse des paquets via Wireshark m'a forcé à me replonger dans les mécanismes du NAT. J'ai compris que le pare-feu bloquait les ports RTP dynamiques. En ajustant le mappage des ports, le trafic s'est stabilisé. <br><br>
-                    <strong>Recul sur mes apprentissages :</strong> Cette SAÉ m'a fait réaliser que la VoIP exige une maîtrise parfaite de la couche réseau sous-jacente (routage, pare-feu).
+                <p>
+                    <strong>Approche Systémique :</strong> Cette SAÉ m'a fait réaliser qu'une infrastructure de téléphonie sur IP performante n'est pas qu'une question logicielle : elle exige une maîtrise absolue des mécanismes réseaux sous-jacents (NAT traversal, inspection de paquets) et une bonne compréhension du besoin client (scénarisation des appels via SVA).
                 </p>
             </div>
+
         </div>
     </main>
 
